@@ -1,6 +1,7 @@
 import React from 'react'
 import { print } from 'graphql'
 import gql from 'graphql-tag'
+import Link from 'next/link'
 
 import queryContentful from '@/utils/queryContentful'
 
@@ -14,8 +15,10 @@ const RootPage: React.FC = async () => {
       <ul>
         {data?.rosterCollection?.items.map((item) => (
           <li key={item?.sys.id}>
-            {item?.name}
-            {item?.type}
+            <Link href={'/detail/' + item?.sys.id}>
+              <p>{item?.name}</p>
+              <p>{item?.type}</p>
+            </Link>
           </li>
         ))}
       </ul>

@@ -587,6 +587,28 @@ export type DetailPageLookupQuery = {
   } | null
 }
 
+export type DetailPageQueryVariables = Exact<{
+  id: Scalars['String']['input']
+}>
+
+export type DetailPageQuery = {
+  __typename?: 'Query'
+  roster?: {
+    __typename?: 'Roster'
+    gold?: number | null
+    wyrdstone?: number | null
+    storage?: Array<string | null> | null
+    heroesCollection?: {
+      __typename?: 'RosterHeroesCollection'
+      items: Array<{ __typename?: 'Hero'; name?: string | null } | null>
+    } | null
+    henchmenCollection?: {
+      __typename?: 'RosterHenchmenCollection'
+      items: Array<{ __typename?: 'Henchman'; name?: string | null } | null>
+    } | null
+  } | null
+}
+
 export type RootPageQueryVariables = Exact<{ [key: string]: never }>
 
 export type RootPageQuery = {
