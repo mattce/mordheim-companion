@@ -595,16 +595,35 @@ export type DetailPageQuery = {
   __typename?: 'Query'
   roster?: {
     __typename?: 'Roster'
+    name?: string | null
+    type?: string | null
     gold?: number | null
     wyrdstone?: number | null
     storage?: Array<string | null> | null
     heroesCollection?: {
       __typename?: 'RosterHeroesCollection'
-      items: Array<{ __typename?: 'Hero'; name?: string | null } | null>
+      items: Array<{
+        __typename?: 'Hero'
+        name?: string | null
+        type?: string | null
+        stats?: string | null
+        equipment?: Array<string | null> | null
+        meta?: Array<string | null> | null
+        experience?: number | null
+      } | null>
     } | null
     henchmenCollection?: {
       __typename?: 'RosterHenchmenCollection'
-      items: Array<{ __typename?: 'Henchman'; name?: string | null } | null>
+      items: Array<{
+        __typename?: 'Henchman'
+        name?: string | null
+        number?: number | null
+        type?: string | null
+        stats?: string | null
+        equipment?: Array<string | null> | null
+        meta?: Array<string | null> | null
+        experience?: number | null
+      } | null>
     } | null
   } | null
 }
