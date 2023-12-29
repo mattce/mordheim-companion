@@ -1,3 +1,148 @@
+"""
+[See type definition](https://app.contentful.com/spaces/8hutbyum2dgr/content_types/armour)
+"""
+type Armour implements Entry {
+  contentfulMetadata: ContentfulMetadata!
+  description(locale: String): ArmourDescription
+  linkedFrom(allowedLocales: [String]): ArmourLinkingCollections
+  name(locale: String): String
+  specialRulesCollection(limit: Int = 100, locale: String, order: [ArmourSpecialRulesCollectionOrder], preview: Boolean, skip: Int = 0, where: SpecialRuleFilter): ArmourSpecialRulesCollection
+  sys: Sys!
+}
+
+type ArmourCollection {
+  items: [Armour]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+type ArmourDescription {
+  json: JSON!
+  links: ArmourDescriptionLinks!
+}
+
+type ArmourDescriptionAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type ArmourDescriptionEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type ArmourDescriptionLinks {
+  assets: ArmourDescriptionAssets!
+  entries: ArmourDescriptionEntries!
+  resources: ArmourDescriptionResources!
+}
+
+type ArmourDescriptionResources {
+  block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
+}
+
+input ArmourFilter {
+  AND: [ArmourFilter]
+  OR: [ArmourFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  specialRules: cfSpecialRuleNestedFilter
+  specialRulesCollection_exists: Boolean
+  sys: SysFilter
+}
+
+type ArmourLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
+  henchmanCollection(limit: Int = 100, locale: String, order: [ArmourLinkingCollectionsHenchmanCollectionOrder], preview: Boolean, skip: Int = 0): HenchmanCollection
+  heroCollection(limit: Int = 100, locale: String, order: [ArmourLinkingCollectionsHeroCollectionOrder], preview: Boolean, skip: Int = 0): HeroCollection
+}
+
+enum ArmourLinkingCollectionsHenchmanCollectionOrder {
+  experience_ASC
+  experience_DESC
+  name_ASC
+  name_DESC
+  number_ASC
+  number_DESC
+  stats_ASC
+  stats_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+enum ArmourLinkingCollectionsHeroCollectionOrder {
+  experience_ASC
+  experience_DESC
+  name_ASC
+  name_DESC
+  stats_ASC
+  stats_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+enum ArmourOrder {
+  name_ASC
+  name_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+type ArmourSpecialRulesCollection {
+  items: [SpecialRule]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum ArmourSpecialRulesCollectionOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
 """Represents a binary file in a space. An asset can be any file type."""
 type Asset {
   contentType(locale: String): String
@@ -116,6 +261,175 @@ enum AssetOrder {
   width_DESC
 }
 
+"""
+[See type definition](https://app.contentful.com/spaces/8hutbyum2dgr/content_types/blackPowderWeapon)
+"""
+type BlackPowderWeapon implements Entry {
+  contentfulMetadata: ContentfulMetadata!
+  description(locale: String): BlackPowderWeaponDescription
+  linkedFrom(allowedLocales: [String]): BlackPowderWeaponLinkingCollections
+  name(locale: String): String
+  range(locale: String): Int
+  specialRulesCollection(limit: Int = 100, locale: String, order: [BlackPowderWeaponSpecialRulesCollectionOrder], preview: Boolean, skip: Int = 0, where: SpecialRuleFilter): BlackPowderWeaponSpecialRulesCollection
+  strength(locale: String): Int
+  sys: Sys!
+}
+
+type BlackPowderWeaponCollection {
+  items: [BlackPowderWeapon]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+type BlackPowderWeaponDescription {
+  json: JSON!
+  links: BlackPowderWeaponDescriptionLinks!
+}
+
+type BlackPowderWeaponDescriptionAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type BlackPowderWeaponDescriptionEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type BlackPowderWeaponDescriptionLinks {
+  assets: BlackPowderWeaponDescriptionAssets!
+  entries: BlackPowderWeaponDescriptionEntries!
+  resources: BlackPowderWeaponDescriptionResources!
+}
+
+type BlackPowderWeaponDescriptionResources {
+  block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
+}
+
+input BlackPowderWeaponFilter {
+  AND: [BlackPowderWeaponFilter]
+  OR: [BlackPowderWeaponFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  range: Int
+  range_exists: Boolean
+  range_gt: Int
+  range_gte: Int
+  range_in: [Int]
+  range_lt: Int
+  range_lte: Int
+  range_not: Int
+  range_not_in: [Int]
+  specialRules: cfSpecialRuleNestedFilter
+  specialRulesCollection_exists: Boolean
+  strength: Int
+  strength_exists: Boolean
+  strength_gt: Int
+  strength_gte: Int
+  strength_in: [Int]
+  strength_lt: Int
+  strength_lte: Int
+  strength_not: Int
+  strength_not_in: [Int]
+  sys: SysFilter
+}
+
+type BlackPowderWeaponLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
+  henchmanCollection(limit: Int = 100, locale: String, order: [BlackPowderWeaponLinkingCollectionsHenchmanCollectionOrder], preview: Boolean, skip: Int = 0): HenchmanCollection
+  heroCollection(limit: Int = 100, locale: String, order: [BlackPowderWeaponLinkingCollectionsHeroCollectionOrder], preview: Boolean, skip: Int = 0): HeroCollection
+}
+
+enum BlackPowderWeaponLinkingCollectionsHenchmanCollectionOrder {
+  experience_ASC
+  experience_DESC
+  name_ASC
+  name_DESC
+  number_ASC
+  number_DESC
+  stats_ASC
+  stats_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+enum BlackPowderWeaponLinkingCollectionsHeroCollectionOrder {
+  experience_ASC
+  experience_DESC
+  name_ASC
+  name_DESC
+  stats_ASC
+  stats_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+enum BlackPowderWeaponOrder {
+  name_ASC
+  name_DESC
+  range_ASC
+  range_DESC
+  strength_ASC
+  strength_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+type BlackPowderWeaponSpecialRulesCollection {
+  items: [SpecialRule]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum BlackPowderWeaponSpecialRulesCollectionOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
 type ContentfulMetadata {
   tags: [ContentfulTag]!
 }
@@ -188,7 +502,7 @@ enum EntryOrder {
 """
 type Henchman implements Entry {
   contentfulMetadata: ContentfulMetadata!
-  equipment(locale: String): [String]
+  equipmentCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, where: HenchmanEquipmentFilter): HenchmanEquipmentCollection
   experience(locale: String): Int
   linkedFrom(allowedLocales: [String]): HenchmanLinkingCollections
   meta(locale: String): [String]
@@ -206,14 +520,39 @@ type HenchmanCollection {
   total: Int!
 }
 
+type HenchmanEquipmentCollection {
+  items: [HenchmanEquipmentItem]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input HenchmanEquipmentFilter {
+  AND: [HenchmanEquipmentFilter]
+  OR: [HenchmanEquipmentFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  specialRulesCollection_exists: Boolean
+  sys: SysFilter
+}
+
+union HenchmanEquipmentItem = Armour | BlackPowderWeapon | MeleeWeapon
+
 input HenchmanFilter {
   AND: [HenchmanFilter]
   OR: [HenchmanFilter]
   contentfulMetadata: ContentfulMetadataFilter
-  equipment_contains_all: [String]
-  equipment_contains_none: [String]
-  equipment_contains_some: [String]
-  equipment_exists: Boolean
+  equipment: cfequipmentMultiTypeNestedFilter
+  equipmentCollection_exists: Boolean
   experience: Int
   experience_exists: Boolean
   experience_gt: Int
@@ -310,7 +649,7 @@ enum HenchmanOrder {
 """
 type Hero implements Entry {
   contentfulMetadata: ContentfulMetadata!
-  equipment(locale: String): [String]
+  equipmentCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, where: HeroEquipmentFilter): HeroEquipmentCollection
   experience(locale: String): Int
   linkedFrom(allowedLocales: [String]): HeroLinkingCollections
   meta(locale: String): [String]
@@ -327,14 +666,39 @@ type HeroCollection {
   total: Int!
 }
 
+type HeroEquipmentCollection {
+  items: [HeroEquipmentItem]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input HeroEquipmentFilter {
+  AND: [HeroEquipmentFilter]
+  OR: [HeroEquipmentFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  specialRulesCollection_exists: Boolean
+  sys: SysFilter
+}
+
+union HeroEquipmentItem = Armour | BlackPowderWeapon | MeleeWeapon
+
 input HeroFilter {
   AND: [HeroFilter]
   OR: [HeroFilter]
   contentfulMetadata: ContentfulMetadataFilter
-  equipment_contains_all: [String]
-  equipment_contains_none: [String]
-  equipment_contains_some: [String]
-  equipment_exists: Boolean
+  equipment: cfequipmentMultiTypeNestedFilter
+  equipmentCollection_exists: Boolean
   experience: Int
   experience_exists: Boolean
   experience_gt: Int
@@ -547,20 +911,212 @@ input ImageTransformOptions {
 }
 
 """
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+[See type definition](https://app.contentful.com/spaces/8hutbyum2dgr/content_types/meleeWeapon)
+"""
+type MeleeWeapon implements Entry {
+  contentfulMetadata: ContentfulMetadata!
+  description(locale: String): MeleeWeaponDescription
+  linkedFrom(allowedLocales: [String]): MeleeWeaponLinkingCollections
+  name(locale: String): String
+  range(locale: String): Int
+  specialRulesCollection(limit: Int = 100, locale: String, order: [MeleeWeaponSpecialRulesCollectionOrder], preview: Boolean, skip: Int = 0, where: SpecialRuleFilter): MeleeWeaponSpecialRulesCollection
+  strength(locale: String): Int
+  sys: Sys!
+}
+
+type MeleeWeaponCollection {
+  items: [MeleeWeapon]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+type MeleeWeaponDescription {
+  json: JSON!
+  links: MeleeWeaponDescriptionLinks!
+}
+
+type MeleeWeaponDescriptionAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type MeleeWeaponDescriptionEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type MeleeWeaponDescriptionLinks {
+  assets: MeleeWeaponDescriptionAssets!
+  entries: MeleeWeaponDescriptionEntries!
+  resources: MeleeWeaponDescriptionResources!
+}
+
+type MeleeWeaponDescriptionResources {
+  block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
+}
+
+input MeleeWeaponFilter {
+  AND: [MeleeWeaponFilter]
+  OR: [MeleeWeaponFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  range: Int
+  range_exists: Boolean
+  range_gt: Int
+  range_gte: Int
+  range_in: [Int]
+  range_lt: Int
+  range_lte: Int
+  range_not: Int
+  range_not_in: [Int]
+  specialRules: cfSpecialRuleNestedFilter
+  specialRulesCollection_exists: Boolean
+  strength: Int
+  strength_exists: Boolean
+  strength_gt: Int
+  strength_gte: Int
+  strength_in: [Int]
+  strength_lt: Int
+  strength_lte: Int
+  strength_not: Int
+  strength_not_in: [Int]
+  sys: SysFilter
+}
+
+type MeleeWeaponLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
+  henchmanCollection(limit: Int = 100, locale: String, order: [MeleeWeaponLinkingCollectionsHenchmanCollectionOrder], preview: Boolean, skip: Int = 0): HenchmanCollection
+  heroCollection(limit: Int = 100, locale: String, order: [MeleeWeaponLinkingCollectionsHeroCollectionOrder], preview: Boolean, skip: Int = 0): HeroCollection
+}
+
+enum MeleeWeaponLinkingCollectionsHenchmanCollectionOrder {
+  experience_ASC
+  experience_DESC
+  name_ASC
+  name_DESC
+  number_ASC
+  number_DESC
+  stats_ASC
+  stats_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+enum MeleeWeaponLinkingCollectionsHeroCollectionOrder {
+  experience_ASC
+  experience_DESC
+  name_ASC
+  name_DESC
+  stats_ASC
+  stats_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+enum MeleeWeaponOrder {
+  name_ASC
+  name_DESC
+  range_ASC
+  range_DESC
+  strength_ASC
+  strength_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+type MeleeWeaponSpecialRulesCollection {
+  items: [SpecialRule]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum MeleeWeaponSpecialRulesCollectionOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
+"""
 The 'Quality' type represents quality as whole numeric values between `1` and `100`.
 """
 scalar Quality
 
 type Query {
+  armour(id: String!, locale: String, preview: Boolean): Armour
+  armourCollection(limit: Int = 100, locale: String, order: [ArmourOrder], preview: Boolean, skip: Int = 0, where: ArmourFilter): ArmourCollection
   asset(id: String!, locale: String, preview: Boolean): Asset
   assetCollection(limit: Int = 100, locale: String, order: [AssetOrder], preview: Boolean, skip: Int = 0, where: AssetFilter): AssetCollection
+  blackPowderWeapon(id: String!, locale: String, preview: Boolean): BlackPowderWeapon
+  blackPowderWeaponCollection(limit: Int = 100, locale: String, order: [BlackPowderWeaponOrder], preview: Boolean, skip: Int = 0, where: BlackPowderWeaponFilter): BlackPowderWeaponCollection
   entryCollection(limit: Int = 100, locale: String, order: [EntryOrder], preview: Boolean, skip: Int = 0, where: EntryFilter): EntryCollection
   henchman(id: String!, locale: String, preview: Boolean): Henchman
   henchmanCollection(limit: Int = 100, locale: String, order: [HenchmanOrder], preview: Boolean, skip: Int = 0, where: HenchmanFilter): HenchmanCollection
   hero(id: String!, locale: String, preview: Boolean): Hero
   heroCollection(limit: Int = 100, locale: String, order: [HeroOrder], preview: Boolean, skip: Int = 0, where: HeroFilter): HeroCollection
+  meleeWeapon(id: String!, locale: String, preview: Boolean): MeleeWeapon
+  meleeWeaponCollection(limit: Int = 100, locale: String, order: [MeleeWeaponOrder], preview: Boolean, skip: Int = 0, where: MeleeWeaponFilter): MeleeWeaponCollection
   roster(id: String!, locale: String, preview: Boolean): Roster
   rosterCollection(limit: Int = 100, locale: String, order: [RosterOrder], preview: Boolean, skip: Int = 0, where: RosterFilter): RosterCollection
+  specialRule(id: String!, locale: String, preview: Boolean): SpecialRule
+  specialRuleCollection(limit: Int = 100, locale: String, order: [SpecialRuleOrder], preview: Boolean, skip: Int = 0, where: SpecialRuleFilter): SpecialRuleCollection
+}
+
+type ResourceLink {
+  sys: ResourceSys!
+}
+
+type ResourceSys {
+  linkType: String!
+  type: String!
+  urn: String!
 }
 
 """
@@ -710,6 +1266,136 @@ enum RosterOrder {
   wyrdstone_DESC
 }
 
+"""
+[See type definition](https://app.contentful.com/spaces/8hutbyum2dgr/content_types/specialRule)
+"""
+type SpecialRule implements Entry {
+  contentfulMetadata: ContentfulMetadata!
+  description(locale: String): SpecialRuleDescription
+  linkedFrom(allowedLocales: [String]): SpecialRuleLinkingCollections
+  sys: Sys!
+  title(locale: String): String
+}
+
+type SpecialRuleCollection {
+  items: [SpecialRule]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+type SpecialRuleDescription {
+  json: JSON!
+  links: SpecialRuleDescriptionLinks!
+}
+
+type SpecialRuleDescriptionAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type SpecialRuleDescriptionEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type SpecialRuleDescriptionLinks {
+  assets: SpecialRuleDescriptionAssets!
+  entries: SpecialRuleDescriptionEntries!
+  resources: SpecialRuleDescriptionResources!
+}
+
+type SpecialRuleDescriptionResources {
+  block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
+}
+
+input SpecialRuleFilter {
+  AND: [SpecialRuleFilter]
+  OR: [SpecialRuleFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+}
+
+type SpecialRuleLinkingCollections {
+  armourCollection(limit: Int = 100, locale: String, order: [SpecialRuleLinkingCollectionsArmourCollectionOrder], preview: Boolean, skip: Int = 0): ArmourCollection
+  blackPowderWeaponCollection(limit: Int = 100, locale: String, order: [SpecialRuleLinkingCollectionsBlackPowderWeaponCollectionOrder], preview: Boolean, skip: Int = 0): BlackPowderWeaponCollection
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
+  meleeWeaponCollection(limit: Int = 100, locale: String, order: [SpecialRuleLinkingCollectionsMeleeWeaponCollectionOrder], preview: Boolean, skip: Int = 0): MeleeWeaponCollection
+}
+
+enum SpecialRuleLinkingCollectionsArmourCollectionOrder {
+  name_ASC
+  name_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+enum SpecialRuleLinkingCollectionsBlackPowderWeaponCollectionOrder {
+  name_ASC
+  name_DESC
+  range_ASC
+  range_DESC
+  strength_ASC
+  strength_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+enum SpecialRuleLinkingCollectionsMeleeWeaponCollectionOrder {
+  name_ASC
+  name_DESC
+  range_ASC
+  range_DESC
+  strength_ASC
+  strength_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+enum SpecialRuleOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
 type Sys {
   environmentId: String!
   firstPublishedAt: DateTime
@@ -760,10 +1446,7 @@ input cfHenchmanNestedFilter {
   AND: [cfHenchmanNestedFilter]
   OR: [cfHenchmanNestedFilter]
   contentfulMetadata: ContentfulMetadataFilter
-  equipment_contains_all: [String]
-  equipment_contains_none: [String]
-  equipment_contains_some: [String]
-  equipment_exists: Boolean
+  equipmentCollection_exists: Boolean
   experience: Int
   experience_exists: Boolean
   experience_gt: Int
@@ -814,10 +1497,7 @@ input cfHeroNestedFilter {
   AND: [cfHeroNestedFilter]
   OR: [cfHeroNestedFilter]
   contentfulMetadata: ContentfulMetadataFilter
-  equipment_contains_all: [String]
-  equipment_contains_none: [String]
-  equipment_contains_some: [String]
-  equipment_exists: Boolean
+  equipmentCollection_exists: Boolean
   experience: Int
   experience_exists: Boolean
   experience_gt: Int
@@ -853,4 +1533,39 @@ input cfHeroNestedFilter {
   type_not: String
   type_not_contains: String
   type_not_in: [String]
+}
+
+input cfSpecialRuleNestedFilter {
+  AND: [cfSpecialRuleNestedFilter]
+  OR: [cfSpecialRuleNestedFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+}
+
+input cfequipmentMultiTypeNestedFilter {
+  AND: [cfequipmentMultiTypeNestedFilter]
+  OR: [cfequipmentMultiTypeNestedFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  name: String
+  name_contains: String
+  name_exists: Boolean
+  name_in: [String]
+  name_not: String
+  name_not_contains: String
+  name_not_in: [String]
+  specialRulesCollection_exists: Boolean
+  sys: SysFilter
 }

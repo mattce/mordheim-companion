@@ -13,8 +13,8 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
   const heroes = data?.roster?.heroesCollection?.items ?? []
   const henchmen = data?.roster?.henchmenCollection?.items ?? []
 
-  const members = [...heroes, ...henchmen]
-  const experience = members.reduce((acc, member) => acc + (member?.experience || 0), 0)
+  const experience = [...heroes, ...henchmen].reduce((acc, member) => acc + (member?.experience || 0), 0)
+  const membersCount = heroes.length + henchmen.reduce((acc, member) => acc + (member?.number || 1), 0)
 
   return (
     <div className="flex flex-col">
@@ -24,7 +24,7 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
         <ul className="mt-auto flex justify-between">
           <li>🪙 {data?.roster?.gold}</li>
           <li>💎 {data?.roster?.wyrdstone}</li>
-          <li>📈 {experience + members.length * 5}</li>
+          <li>📈 {experience + membersCount * 5}</li>
           <li>📦 1</li>
         </ul>
       </header>
@@ -33,17 +33,24 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
         {heroes.map((item) => {
           const stats = item?.stats?.split(',') ?? []
           return (
-            <li className="mb-4 bg-neutral-800 p-4" key={item?.name}>
+            <li className="mb-4 bg-neutral-800 p-4" key={item?.sys.id}>
               <p>{item?.name}</p>
               <p className="text-sm">{item?.type}</p>
-              <ul className="-mx-3 mt-2 flex">
+              <ul className="mt-2 flex">
                 {stats.map((stat, index) => (
-                  <li className="flex-1 text-center" key={index}>
+                  <li className="flex-1 text-center" key={STATS_DICTIONARY[index]}>
                     <p className="bg-neutral-950">{STATS_DICTIONARY[index]}</p>
                     <p className="border border-neutral-950 bg-neutral-200 text-neutral-900">{stat}</p>
                   </li>
                 ))}
               </ul>
+              {item?.equipmentCollection && (
+                <ul className="mt-2">
+                  {item.equipmentCollection.items.map((item, index) => (
+                    <li key={`${index}_${item?.sys.id}`}>{item?.name}</li>
+                  ))}
+                </ul>
+              )}
             </li>
           )
         })}
@@ -53,17 +60,24 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
         {henchmen.map((item) => {
           const stats = item?.stats?.split(',') ?? []
           return (
-            <li className="mb-4 bg-neutral-800 p-4" key={item?.name}>
+            <li className="mb-4 bg-neutral-800 p-4" key={item?.sys.id}>
               <p>{item?.name}</p>
               <p className="text-sm">{item?.type}</p>
-              <ul className="-mx-3 mt-2 flex">
+              <ul className="mt-2 flex">
                 {stats.map((stat, index) => (
-                  <li className="flex-1 text-center" key={index}>
+                  <li className="flex-1 text-center" key={STATS_DICTIONARY[index]}>
                     <p className="bg-neutral-950">{STATS_DICTIONARY[index]}</p>
                     <p className="border border-neutral-950 bg-neutral-200 text-neutral-900">{stat}</p>
                   </li>
                 ))}
               </ul>
+              {item?.equipmentCollection && (
+                <ul className="mt-2">
+                  {item.equipmentCollection.items.map((item, index) => (
+                    <li key={`${index}_${item?.sys.id}`}>{item?.name}</li>
+                  ))}
+                </ul>
+              )}
             </li>
           )
         })}
@@ -98,23 +112,71 @@ const detailPageQuery = print(gql`
       gold
       wyrdstone
       storage
-      heroesCollection {
+      heroesCollection(limit: 10) {
         items {
+          sys {
+            id
+          }
           name
           type
           stats
-          equipment
+          equipmentCollection(limit: 10) {
+            items {
+              ... on Armour {
+                sys {
+                  id
+                }
+                name
+              }
+              ... on MeleeWeapon {
+                sys {
+                  id
+                }
+                name
+              }
+              ... on BlackPowderWeapon {
+                sys {
+                  id
+                }
+                name
+              }
+            }
+          }
           meta
           experience
         }
       }
-      henchmenCollection {
+      henchmenCollection(limit: 10) {
         items {
+          sys {
+            id
+          }
           name
           number
           type
           stats
-          equipment
+          equipmentCollection(limit: 10) {
+            items {
+              ... on Armour {
+                sys {
+                  id
+                }
+                name
+              }
+              ... on MeleeWeapon {
+                sys {
+                  id
+                }
+                name
+              }
+              ... on BlackPowderWeapon {
+                sys {
+                  id
+                }
+                name
+              }
+            }
+          }
           meta
           experience
         }
