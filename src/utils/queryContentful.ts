@@ -5,6 +5,7 @@ const queryContentful = async <T>(query: string, variables?: Record<string, any>
   const _query = { query: query, variables: JSON.stringify(variables || {}) }
 
   const response = await fetch(withQuery(_url, _query), {
+    next: { revalidate: 10 },
     headers: {
       Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       'Content-Type': 'application/json',

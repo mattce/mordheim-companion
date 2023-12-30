@@ -3,9 +3,12 @@ import { print } from 'graphql'
 import gql from 'graphql-tag'
 
 import { DetailPageLookupQuery, DetailPageQuery } from '@/types'
+import getLevel from '@/utils/getLevel'
 import queryContentful from '@/utils/queryContentful'
 
 const STATS_DICTIONARY = ['B', 'KG', 'BF', 'S', 'W', 'LP', 'I', 'A', 'MW']
+const XP_LADDER_HEROES = [2, 4, 6, 8, 11, 14, 17, 20, 24, 28, 32, 36, 41, 46, 51, 57, 63, 69, 76, 83, 90]
+const XP_LADDER_HENCHMEN = [2, 5, 9, 14]
 
 const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
   const data = await queryContentful<DetailPageQuery>(detailPageQuery, { id: props.params.id })
@@ -34,7 +37,10 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
           const stats = item?.stats?.split(',') ?? []
           return (
             <li className="mb-4 bg-neutral-800 p-4" key={item?.sys.id}>
-              <p>{item?.name}</p>
+              <p className="flex">
+                {item?.name}
+                <span className="ml-auto">Level: {getLevel(item?.experience || 0, XP_LADDER_HEROES)}</span>
+              </p>
               <p className="text-sm">{item?.type}</p>
               <ul className="mt-2 flex">
                 {stats.map((stat, index) => (
@@ -61,7 +67,10 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
           const stats = item?.stats?.split(',') ?? []
           return (
             <li className="mb-4 bg-neutral-800 p-4" key={item?.sys.id}>
-              <p>{item?.name}</p>
+              <p className="flex">
+                {item?.name}
+                <span className="ml-auto">Level: {getLevel(item?.experience || 0, XP_LADDER_HENCHMEN)}</span>
+              </p>
               <p className="text-sm">{item?.type}</p>
               <ul className="mt-2 flex">
                 {stats.map((stat, index) => (
