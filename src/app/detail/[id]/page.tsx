@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'classnames'
 import { print } from 'graphql'
 import gql from 'graphql-tag'
 
@@ -57,6 +58,22 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
                   ))}
                 </ul>
               )}
+              <ul className="flex flex-wrap">
+                {Array.from({ length: 90 }, (_, i) => i + 1).map((v) => {
+                  return (
+                    <li className={cx('relative flex w-1/12')} key={v}>
+                      <span className="h-0 pt-[100%]" />
+                      <span className="absolute inset-px bg-neutral-200" />
+                      <span
+                        className={cx('absolute inset-[3px]', {
+                          'border-2 border-neutral-950': XP_LADDER_HEROES.includes(v),
+                          'bg-neutral-400': (item?.experience || 0) >= v,
+                        })}
+                      />
+                    </li>
+                  )
+                })}
+              </ul>
             </li>
           )
         })}
@@ -87,6 +104,22 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
                   ))}
                 </ul>
               )}
+              <ul className="flex flex-wrap">
+                {Array.from({ length: 14 }, (_, i) => i + 1).map((v) => {
+                  return (
+                    <li className={cx('relative flex w-1/12')} key={v}>
+                      <span className="h-0 pt-[100%]" />
+                      <span className="absolute inset-px bg-neutral-200" />
+                      <span
+                        className={cx('absolute inset-[3px]', {
+                          'border-2 border-neutral-950': XP_LADDER_HENCHMEN.includes(v),
+                          'bg-neutral-400': (item?.experience || 0) >= v,
+                        })}
+                      />
+                    </li>
+                  )
+                })}
+              </ul>
             </li>
           )
         })}
