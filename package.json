@@ -10,6 +10,7 @@
     "codegen": "graphql-codegen -r dotenv-flow/config --config codegen.ts"
   },
   "dependencies": {
+    "classnames": "2.5.1",
     "graphql": "16.8.1",
     "graphql-tag": "2.12.6",
     "next": "14.0.4",
