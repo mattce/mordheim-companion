@@ -61,7 +61,7 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
                       <Modal label={item?.name}>
                         <p className="mb-4">{item?.name}</p>
                         {documentToReactComponents(item?.description?.json)}
-                        {item?.specialRulesCollection?.items.length && (
+                        {!!item?.specialRulesCollection?.items.length && (
                           <ul className="mt-4">
                             {item?.specialRulesCollection?.items.map((item) => (
                               <li key={item?.title}>
@@ -122,7 +122,7 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
                       <Modal label={item?.name}>
                         <p className="mb-4">{item?.name}</p>
                         {documentToReactComponents(item?.description?.json)}
-                        {item?.specialRulesCollection?.items.length && (
+                        {!!item?.specialRulesCollection?.items.length && (
                           <ul>
                             {item?.specialRulesCollection?.items.map((item) => (
                               <li className="mt-4" key={item?.title}>
