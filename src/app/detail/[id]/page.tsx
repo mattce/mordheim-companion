@@ -6,6 +6,9 @@ import gql from 'graphql-tag'
 import { DetailPageLookupQuery, DetailPageQuery } from '@/types'
 import getLevel from '@/utils/getLevel'
 import queryContentful from '@/utils/queryContentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+
+import Modal from './Modal'
 
 const STATS_DICTIONARY = ['B', 'KG', 'BF', 'S', 'W', 'LP', 'I', 'A', 'MW']
 const XP_LADDER_HEROES = [2, 4, 6, 8, 11, 14, 17, 20, 24, 28, 32, 36, 41, 46, 51, 57, 63, 69, 76, 83, 90]
@@ -18,7 +21,7 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
   const henchmen = data?.roster?.henchmenCollection?.items ?? []
 
   const experience = [...heroes, ...henchmen].reduce((acc, member) => acc + (member?.experience || 0), 0)
-  const membersCount = heroes.length + henchmen.reduce((acc, member) => acc + (member?.number || 1), 0)
+  const membersCount = heroes.length + henchmen.reduce((acc, member) => acc + (member?.count || 1), 0)
 
   return (
     <div className="flex flex-col">
@@ -54,7 +57,22 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
               {item?.equipmentCollection && (
                 <ul className="mt-2">
                   {item.equipmentCollection.items.map((item, index) => (
-                    <li key={`${index}_${item?.sys.id}`}>{item?.name}</li>
+                    <li key={`${index}_${item?.sys.id}`}>
+                      <Modal label={item?.name}>
+                        <p className="mb-4">{item?.name}</p>
+                        {documentToReactComponents(item?.description?.json)}
+                        {item?.specialRulesCollection?.items.length && (
+                          <ul className="mt-4">
+                            {item?.specialRulesCollection?.items.map((item) => (
+                              <li key={item?.title}>
+                                <p className="font-bold">{item?.title}</p>
+                                {documentToReactComponents(item?.description?.json)}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </Modal>
+                    </li>
                   ))}
                 </ul>
               )}
@@ -100,7 +118,22 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
               {item?.equipmentCollection && (
                 <ul className="mt-2">
                   {item.equipmentCollection.items.map((item, index) => (
-                    <li key={`${index}_${item?.sys.id}`}>{item?.name}</li>
+                    <li key={`${index}_${item?.sys.id}`}>
+                      <Modal label={item?.name}>
+                        <p className="mb-4">{item?.name}</p>
+                        {documentToReactComponents(item?.description?.json)}
+                        {item?.specialRulesCollection?.items.length && (
+                          <ul>
+                            {item?.specialRulesCollection?.items.map((item) => (
+                              <li className="mt-4" key={item?.title}>
+                                <p className="font-bold">{item?.title}</p>
+                                {documentToReactComponents(item?.description?.json)}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </Modal>
+                    </li>
                   ))}
                 </ul>
               )}
@@ -169,18 +202,51 @@ const detailPageQuery = print(gql`
                   id
                 }
                 name
+                description {
+                  json
+                }
+                specialRulesCollection(limit: 10) {
+                  items {
+                    title
+                    description {
+                      json
+                    }
+                  }
+                }
               }
               ... on MeleeWeapon {
                 sys {
                   id
                 }
                 name
+                description {
+                  json
+                }
+                specialRulesCollection(limit: 10) {
+                  items {
+                    title
+                    description {
+                      json
+                    }
+                  }
+                }
               }
               ... on BlackPowderWeapon {
                 sys {
                   id
                 }
                 name
+                description {
+                  json
+                }
+                specialRulesCollection(limit: 10) {
+                  items {
+                    title
+                    description {
+                      json
+                    }
+                  }
+                }
               }
             }
           }
@@ -194,7 +260,7 @@ const detailPageQuery = print(gql`
             id
           }
           name
-          number
+          count
           type
           stats
           equipmentCollection(limit: 10) {
@@ -204,18 +270,51 @@ const detailPageQuery = print(gql`
                   id
                 }
                 name
+                description {
+                  json
+                }
+                specialRulesCollection(limit: 10) {
+                  items {
+                    title
+                    description {
+                      json
+                    }
+                  }
+                }
               }
               ... on MeleeWeapon {
                 sys {
                   id
                 }
                 name
+                description {
+                  json
+                }
+                specialRulesCollection(limit: 10) {
+                  items {
+                    title
+                    description {
+                      json
+                    }
+                  }
+                }
               }
               ... on BlackPowderWeapon {
                 sys {
                   id
                 }
                 name
+                description {
+                  json
+                }
+                specialRulesCollection(limit: 10) {
+                  items {
+                    title
+                    description {
+                      json
+                    }
+                  }
+                }
               }
             }
           }

@@ -39,12 +39,12 @@ export type ArmourFilter = {
 }
 
 export type ArmourLinkingCollectionsHenchmanCollectionOrder =
+  | 'count_ASC'
+  | 'count_DESC'
   | 'experience_ASC'
   | 'experience_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
   | 'stats_ASC'
   | 'stats_DESC'
   | 'sys_firstPublishedAt_ASC'
@@ -229,12 +229,12 @@ export type BlackPowderWeaponFilter = {
 }
 
 export type BlackPowderWeaponLinkingCollectionsHenchmanCollectionOrder =
+  | 'count_ASC'
+  | 'count_DESC'
   | 'experience_ASC'
   | 'experience_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
   | 'stats_ASC'
   | 'stats_DESC'
   | 'sys_firstPublishedAt_ASC'
@@ -344,6 +344,15 @@ export type HenchmanFilter = {
   AND?: InputMaybe<Array<InputMaybe<HenchmanFilter>>>
   OR?: InputMaybe<Array<InputMaybe<HenchmanFilter>>>
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>
+  count?: InputMaybe<Scalars['Int']['input']>
+  count_exists?: InputMaybe<Scalars['Boolean']['input']>
+  count_gt?: InputMaybe<Scalars['Int']['input']>
+  count_gte?: InputMaybe<Scalars['Int']['input']>
+  count_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
+  count_lt?: InputMaybe<Scalars['Int']['input']>
+  count_lte?: InputMaybe<Scalars['Int']['input']>
+  count_not?: InputMaybe<Scalars['Int']['input']>
+  count_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
   equipment?: InputMaybe<CfequipmentMultiTypeNestedFilter>
   equipmentCollection_exists?: InputMaybe<Scalars['Boolean']['input']>
   experience?: InputMaybe<Scalars['Int']['input']>
@@ -366,15 +375,6 @@ export type HenchmanFilter = {
   name_not?: InputMaybe<Scalars['String']['input']>
   name_not_contains?: InputMaybe<Scalars['String']['input']>
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
-  number?: InputMaybe<Scalars['Int']['input']>
-  number_exists?: InputMaybe<Scalars['Boolean']['input']>
-  number_gt?: InputMaybe<Scalars['Int']['input']>
-  number_gte?: InputMaybe<Scalars['Int']['input']>
-  number_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
-  number_lt?: InputMaybe<Scalars['Int']['input']>
-  number_lte?: InputMaybe<Scalars['Int']['input']>
-  number_not?: InputMaybe<Scalars['Int']['input']>
-  number_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
   stats?: InputMaybe<Scalars['String']['input']>
   stats_contains?: InputMaybe<Scalars['String']['input']>
   stats_exists?: InputMaybe<Scalars['Boolean']['input']>
@@ -411,12 +411,12 @@ export type HenchmanLinkingCollectionsRosterCollectionOrder =
   | 'wyrdstone_DESC'
 
 export type HenchmanOrder =
+  | 'count_ASC'
+  | 'count_DESC'
   | 'experience_ASC'
   | 'experience_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
   | 'stats_ASC'
   | 'stats_DESC'
   | 'sys_firstPublishedAt_ASC'
@@ -593,12 +593,12 @@ export type MeleeWeaponFilter = {
 }
 
 export type MeleeWeaponLinkingCollectionsHenchmanCollectionOrder =
+  | 'count_ASC'
+  | 'count_DESC'
   | 'experience_ASC'
   | 'experience_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
   | 'stats_ASC'
   | 'stats_DESC'
   | 'sys_firstPublishedAt_ASC'
@@ -706,12 +706,12 @@ export type RosterFilter = {
 }
 
 export type RosterHenchmenCollectionOrder =
+  | 'count_ASC'
+  | 'count_DESC'
   | 'experience_ASC'
   | 'experience_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'number_ASC'
-  | 'number_DESC'
   | 'stats_ASC'
   | 'stats_DESC'
   | 'sys_firstPublishedAt_ASC'
@@ -875,6 +875,15 @@ export type CfHenchmanNestedFilter = {
   AND?: InputMaybe<Array<InputMaybe<CfHenchmanNestedFilter>>>
   OR?: InputMaybe<Array<InputMaybe<CfHenchmanNestedFilter>>>
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>
+  count?: InputMaybe<Scalars['Int']['input']>
+  count_exists?: InputMaybe<Scalars['Boolean']['input']>
+  count_gt?: InputMaybe<Scalars['Int']['input']>
+  count_gte?: InputMaybe<Scalars['Int']['input']>
+  count_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
+  count_lt?: InputMaybe<Scalars['Int']['input']>
+  count_lte?: InputMaybe<Scalars['Int']['input']>
+  count_not?: InputMaybe<Scalars['Int']['input']>
+  count_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
   equipmentCollection_exists?: InputMaybe<Scalars['Boolean']['input']>
   experience?: InputMaybe<Scalars['Int']['input']>
   experience_exists?: InputMaybe<Scalars['Boolean']['input']>
@@ -896,15 +905,6 @@ export type CfHenchmanNestedFilter = {
   name_not?: InputMaybe<Scalars['String']['input']>
   name_not_contains?: InputMaybe<Scalars['String']['input']>
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
-  number?: InputMaybe<Scalars['Int']['input']>
-  number_exists?: InputMaybe<Scalars['Boolean']['input']>
-  number_gt?: InputMaybe<Scalars['Int']['input']>
-  number_gte?: InputMaybe<Scalars['Int']['input']>
-  number_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
-  number_lt?: InputMaybe<Scalars['Int']['input']>
-  number_lte?: InputMaybe<Scalars['Int']['input']>
-  number_not?: InputMaybe<Scalars['Int']['input']>
-  number_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>
   stats?: InputMaybe<Scalars['String']['input']>
   stats_contains?: InputMaybe<Scalars['String']['input']>
   stats_exists?: InputMaybe<Scalars['Boolean']['input']>
@@ -1035,9 +1035,48 @@ export type DetailPageQuery = {
         equipmentCollection?: {
           __typename?: 'HeroEquipmentCollection'
           items: Array<
-            | { __typename?: 'Armour'; name?: string | null; sys: { __typename?: 'Sys'; id: string } }
-            | { __typename?: 'BlackPowderWeapon'; name?: string | null; sys: { __typename?: 'Sys'; id: string } }
-            | { __typename?: 'MeleeWeapon'; name?: string | null; sys: { __typename?: 'Sys'; id: string } }
+            | {
+                __typename?: 'Armour'
+                name?: string | null
+                sys: { __typename?: 'Sys'; id: string }
+                description?: { __typename?: 'ArmourDescription'; json: any } | null
+                specialRulesCollection?: {
+                  __typename?: 'ArmourSpecialRulesCollection'
+                  items: Array<{
+                    __typename?: 'SpecialRule'
+                    title?: string | null
+                    description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                  } | null>
+                } | null
+              }
+            | {
+                __typename?: 'BlackPowderWeapon'
+                name?: string | null
+                sys: { __typename?: 'Sys'; id: string }
+                description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+                specialRulesCollection?: {
+                  __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+                  items: Array<{
+                    __typename?: 'SpecialRule'
+                    title?: string | null
+                    description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                  } | null>
+                } | null
+              }
+            | {
+                __typename?: 'MeleeWeapon'
+                name?: string | null
+                sys: { __typename?: 'Sys'; id: string }
+                description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+                specialRulesCollection?: {
+                  __typename?: 'MeleeWeaponSpecialRulesCollection'
+                  items: Array<{
+                    __typename?: 'SpecialRule'
+                    title?: string | null
+                    description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                  } | null>
+                } | null
+              }
             | null
           >
         } | null
@@ -1048,7 +1087,7 @@ export type DetailPageQuery = {
       items: Array<{
         __typename?: 'Henchman'
         name?: string | null
-        number?: number | null
+        count?: number | null
         type?: string | null
         stats?: string | null
         meta?: Array<string | null> | null
@@ -1057,9 +1096,48 @@ export type DetailPageQuery = {
         equipmentCollection?: {
           __typename?: 'HenchmanEquipmentCollection'
           items: Array<
-            | { __typename?: 'Armour'; name?: string | null; sys: { __typename?: 'Sys'; id: string } }
-            | { __typename?: 'BlackPowderWeapon'; name?: string | null; sys: { __typename?: 'Sys'; id: string } }
-            | { __typename?: 'MeleeWeapon'; name?: string | null; sys: { __typename?: 'Sys'; id: string } }
+            | {
+                __typename?: 'Armour'
+                name?: string | null
+                sys: { __typename?: 'Sys'; id: string }
+                description?: { __typename?: 'ArmourDescription'; json: any } | null
+                specialRulesCollection?: {
+                  __typename?: 'ArmourSpecialRulesCollection'
+                  items: Array<{
+                    __typename?: 'SpecialRule'
+                    title?: string | null
+                    description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                  } | null>
+                } | null
+              }
+            | {
+                __typename?: 'BlackPowderWeapon'
+                name?: string | null
+                sys: { __typename?: 'Sys'; id: string }
+                description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+                specialRulesCollection?: {
+                  __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+                  items: Array<{
+                    __typename?: 'SpecialRule'
+                    title?: string | null
+                    description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                  } | null>
+                } | null
+              }
+            | {
+                __typename?: 'MeleeWeapon'
+                name?: string | null
+                sys: { __typename?: 'Sys'; id: string }
+                description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+                specialRulesCollection?: {
+                  __typename?: 'MeleeWeaponSpecialRulesCollection'
+                  items: Array<{
+                    __typename?: 'SpecialRule'
+                    title?: string | null
+                    description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                  } | null>
+                } | null
+              }
             | null
           >
         } | null
