@@ -28,9 +28,7 @@ const Modal: React.FC<ModalProps> = (props) => {
         onClick={handleToggle}
       >
         <div className="absolute inset-4 overflow-y-auto bg-neutral-200 p-4 text-neutral-950">
-          <button className="absolute right-0 top-0 m-4" onClick={handleToggle}>
-            &times;
-          </button>
+          <button className="absolute right-0 top-0 m-4">&times;</button>
           {props.children}
         </div>
       </div>

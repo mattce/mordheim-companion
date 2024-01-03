@@ -59,7 +59,7 @@ const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
                   {item.equipmentCollection.items.map((item, index) => (
                     <li key={`${index}_${item?.sys.id}`}>
                       <Modal label={item?.name}>
-                        <p className="mb-4">{item?.name}</p>
+                        <p className="mb-4 font-bold">{item?.name}</p>
                         {documentToReactComponents(item?.description?.json)}
                         {!!item?.specialRulesCollection?.items.length && (
                           <ul className="mt-4">
