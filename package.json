@@ -10,6 +10,7 @@
     "codegen": "graphql-codegen -r dotenv-flow/config --config codegen.ts"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "15.19.0",
     "classnames": "2.5.1",
     "graphql": "16.8.1",
     "graphql-tag": "2.12.6",
