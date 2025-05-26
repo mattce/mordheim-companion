@@ -1036,7 +1036,7 @@ export type DetailPageQuery = {
           __typename?: 'HeroEquipmentCollection'
           items: Array<
             | {
-                __typename?: 'Armour'
+                __typename: 'Armour'
                 name?: string | null
                 sys: { __typename?: 'Sys'; id: string }
                 description?: { __typename?: 'ArmourDescription'; json: any } | null
@@ -1045,12 +1045,13 @@ export type DetailPageQuery = {
                   items: Array<{
                     __typename?: 'SpecialRule'
                     title?: string | null
+                    sys: { __typename?: 'Sys'; id: string }
                     description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
                   } | null>
                 } | null
               }
             | {
-                __typename?: 'BlackPowderWeapon'
+                __typename: 'BlackPowderWeapon'
                 name?: string | null
                 sys: { __typename?: 'Sys'; id: string }
                 description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
@@ -1059,12 +1060,13 @@ export type DetailPageQuery = {
                   items: Array<{
                     __typename?: 'SpecialRule'
                     title?: string | null
+                    sys: { __typename?: 'Sys'; id: string }
                     description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
                   } | null>
                 } | null
               }
             | {
-                __typename?: 'MeleeWeapon'
+                __typename: 'MeleeWeapon'
                 name?: string | null
                 sys: { __typename?: 'Sys'; id: string }
                 description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
@@ -1073,6 +1075,7 @@ export type DetailPageQuery = {
                   items: Array<{
                     __typename?: 'SpecialRule'
                     title?: string | null
+                    sys: { __typename?: 'Sys'; id: string }
                     description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
                   } | null>
                 } | null
@@ -1086,8 +1089,8 @@ export type DetailPageQuery = {
       __typename?: 'RosterHenchmenCollection'
       items: Array<{
         __typename?: 'Henchman'
-        name?: string | null
         count?: number | null
+        name?: string | null
         type?: string | null
         stats?: string | null
         meta?: Array<string | null> | null
@@ -1097,7 +1100,7 @@ export type DetailPageQuery = {
           __typename?: 'HenchmanEquipmentCollection'
           items: Array<
             | {
-                __typename?: 'Armour'
+                __typename: 'Armour'
                 name?: string | null
                 sys: { __typename?: 'Sys'; id: string }
                 description?: { __typename?: 'ArmourDescription'; json: any } | null
@@ -1106,12 +1109,13 @@ export type DetailPageQuery = {
                   items: Array<{
                     __typename?: 'SpecialRule'
                     title?: string | null
+                    sys: { __typename?: 'Sys'; id: string }
                     description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
                   } | null>
                 } | null
               }
             | {
-                __typename?: 'BlackPowderWeapon'
+                __typename: 'BlackPowderWeapon'
                 name?: string | null
                 sys: { __typename?: 'Sys'; id: string }
                 description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
@@ -1120,12 +1124,13 @@ export type DetailPageQuery = {
                   items: Array<{
                     __typename?: 'SpecialRule'
                     title?: string | null
+                    sys: { __typename?: 'Sys'; id: string }
                     description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
                   } | null>
                 } | null
               }
             | {
-                __typename?: 'MeleeWeapon'
+                __typename: 'MeleeWeapon'
                 name?: string | null
                 sys: { __typename?: 'Sys'; id: string }
                 description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
@@ -1134,6 +1139,7 @@ export type DetailPageQuery = {
                   items: Array<{
                     __typename?: 'SpecialRule'
                     title?: string | null
+                    sys: { __typename?: 'Sys'; id: string }
                     description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
                   } | null>
                 } | null
@@ -1159,4 +1165,318 @@ export type RootPageQuery = {
       sys: { __typename?: 'Sys'; id: string }
     } | null>
   } | null
+}
+
+export type ArmourModuleFragment = {
+  __typename: 'Armour'
+  name?: string | null
+  sys: { __typename?: 'Sys'; id: string }
+  description?: { __typename?: 'ArmourDescription'; json: any } | null
+  specialRulesCollection?: {
+    __typename?: 'ArmourSpecialRulesCollection'
+    items: Array<{
+      __typename?: 'SpecialRule'
+      title?: string | null
+      sys: { __typename?: 'Sys'; id: string }
+      description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+    } | null>
+  } | null
+}
+
+export type BlackPowderWeaponModuleFragment = {
+  __typename: 'BlackPowderWeapon'
+  name?: string | null
+  sys: { __typename?: 'Sys'; id: string }
+  description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+  specialRulesCollection?: {
+    __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+    items: Array<{
+      __typename?: 'SpecialRule'
+      title?: string | null
+      sys: { __typename?: 'Sys'; id: string }
+      description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+    } | null>
+  } | null
+}
+
+export type DetailPageModuleFragment = {
+  __typename?: 'Roster'
+  name?: string | null
+  type?: string | null
+  gold?: number | null
+  wyrdstone?: number | null
+  storage?: Array<string | null> | null
+  heroesCollection?: {
+    __typename?: 'RosterHeroesCollection'
+    items: Array<{
+      __typename?: 'Hero'
+      name?: string | null
+      type?: string | null
+      stats?: string | null
+      meta?: Array<string | null> | null
+      experience?: number | null
+      sys: { __typename?: 'Sys'; id: string }
+      equipmentCollection?: {
+        __typename?: 'HeroEquipmentCollection'
+        items: Array<
+          | {
+              __typename: 'Armour'
+              name?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'ArmourDescription'; json: any } | null
+              specialRulesCollection?: {
+                __typename?: 'ArmourSpecialRulesCollection'
+                items: Array<{
+                  __typename?: 'SpecialRule'
+                  title?: string | null
+                  sys: { __typename?: 'Sys'; id: string }
+                  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                } | null>
+              } | null
+            }
+          | {
+              __typename: 'BlackPowderWeapon'
+              name?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+              specialRulesCollection?: {
+                __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+                items: Array<{
+                  __typename?: 'SpecialRule'
+                  title?: string | null
+                  sys: { __typename?: 'Sys'; id: string }
+                  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                } | null>
+              } | null
+            }
+          | {
+              __typename: 'MeleeWeapon'
+              name?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+              specialRulesCollection?: {
+                __typename?: 'MeleeWeaponSpecialRulesCollection'
+                items: Array<{
+                  __typename?: 'SpecialRule'
+                  title?: string | null
+                  sys: { __typename?: 'Sys'; id: string }
+                  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                } | null>
+              } | null
+            }
+          | null
+        >
+      } | null
+    } | null>
+  } | null
+  henchmenCollection?: {
+    __typename?: 'RosterHenchmenCollection'
+    items: Array<{
+      __typename?: 'Henchman'
+      count?: number | null
+      name?: string | null
+      type?: string | null
+      stats?: string | null
+      meta?: Array<string | null> | null
+      experience?: number | null
+      sys: { __typename?: 'Sys'; id: string }
+      equipmentCollection?: {
+        __typename?: 'HenchmanEquipmentCollection'
+        items: Array<
+          | {
+              __typename: 'Armour'
+              name?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'ArmourDescription'; json: any } | null
+              specialRulesCollection?: {
+                __typename?: 'ArmourSpecialRulesCollection'
+                items: Array<{
+                  __typename?: 'SpecialRule'
+                  title?: string | null
+                  sys: { __typename?: 'Sys'; id: string }
+                  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                } | null>
+              } | null
+            }
+          | {
+              __typename: 'BlackPowderWeapon'
+              name?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+              specialRulesCollection?: {
+                __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+                items: Array<{
+                  __typename?: 'SpecialRule'
+                  title?: string | null
+                  sys: { __typename?: 'Sys'; id: string }
+                  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                } | null>
+              } | null
+            }
+          | {
+              __typename: 'MeleeWeapon'
+              name?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+              specialRulesCollection?: {
+                __typename?: 'MeleeWeaponSpecialRulesCollection'
+                items: Array<{
+                  __typename?: 'SpecialRule'
+                  title?: string | null
+                  sys: { __typename?: 'Sys'; id: string }
+                  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+                } | null>
+              } | null
+            }
+          | null
+        >
+      } | null
+    } | null>
+  } | null
+}
+
+export type HenchmanModuleFragment = {
+  __typename?: 'Henchman'
+  count?: number | null
+  name?: string | null
+  type?: string | null
+  stats?: string | null
+  meta?: Array<string | null> | null
+  experience?: number | null
+  sys: { __typename?: 'Sys'; id: string }
+  equipmentCollection?: {
+    __typename?: 'HenchmanEquipmentCollection'
+    items: Array<
+      | {
+          __typename: 'Armour'
+          name?: string | null
+          sys: { __typename?: 'Sys'; id: string }
+          description?: { __typename?: 'ArmourDescription'; json: any } | null
+          specialRulesCollection?: {
+            __typename?: 'ArmourSpecialRulesCollection'
+            items: Array<{
+              __typename?: 'SpecialRule'
+              title?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+            } | null>
+          } | null
+        }
+      | {
+          __typename: 'BlackPowderWeapon'
+          name?: string | null
+          sys: { __typename?: 'Sys'; id: string }
+          description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+          specialRulesCollection?: {
+            __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+            items: Array<{
+              __typename?: 'SpecialRule'
+              title?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+            } | null>
+          } | null
+        }
+      | {
+          __typename: 'MeleeWeapon'
+          name?: string | null
+          sys: { __typename?: 'Sys'; id: string }
+          description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+          specialRulesCollection?: {
+            __typename?: 'MeleeWeaponSpecialRulesCollection'
+            items: Array<{
+              __typename?: 'SpecialRule'
+              title?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+            } | null>
+          } | null
+        }
+      | null
+    >
+  } | null
+}
+
+export type HeroModuleFragment = {
+  __typename?: 'Hero'
+  name?: string | null
+  type?: string | null
+  stats?: string | null
+  meta?: Array<string | null> | null
+  experience?: number | null
+  sys: { __typename?: 'Sys'; id: string }
+  equipmentCollection?: {
+    __typename?: 'HeroEquipmentCollection'
+    items: Array<
+      | {
+          __typename: 'Armour'
+          name?: string | null
+          sys: { __typename?: 'Sys'; id: string }
+          description?: { __typename?: 'ArmourDescription'; json: any } | null
+          specialRulesCollection?: {
+            __typename?: 'ArmourSpecialRulesCollection'
+            items: Array<{
+              __typename?: 'SpecialRule'
+              title?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+            } | null>
+          } | null
+        }
+      | {
+          __typename: 'BlackPowderWeapon'
+          name?: string | null
+          sys: { __typename?: 'Sys'; id: string }
+          description?: { __typename?: 'BlackPowderWeaponDescription'; json: any } | null
+          specialRulesCollection?: {
+            __typename?: 'BlackPowderWeaponSpecialRulesCollection'
+            items: Array<{
+              __typename?: 'SpecialRule'
+              title?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+            } | null>
+          } | null
+        }
+      | {
+          __typename: 'MeleeWeapon'
+          name?: string | null
+          sys: { __typename?: 'Sys'; id: string }
+          description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+          specialRulesCollection?: {
+            __typename?: 'MeleeWeaponSpecialRulesCollection'
+            items: Array<{
+              __typename?: 'SpecialRule'
+              title?: string | null
+              sys: { __typename?: 'Sys'; id: string }
+              description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+            } | null>
+          } | null
+        }
+      | null
+    >
+  } | null
+}
+
+export type MeleeWeaponModuleFragment = {
+  __typename: 'MeleeWeapon'
+  name?: string | null
+  sys: { __typename?: 'Sys'; id: string }
+  description?: { __typename?: 'MeleeWeaponDescription'; json: any } | null
+  specialRulesCollection?: {
+    __typename?: 'MeleeWeaponSpecialRulesCollection'
+    items: Array<{
+      __typename?: 'SpecialRule'
+      title?: string | null
+      sys: { __typename?: 'Sys'; id: string }
+      description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
+    } | null>
+  } | null
+}
+
+export type SpecialRuleModuleFragment = {
+  __typename?: 'SpecialRule'
+  title?: string | null
+  sys: { __typename?: 'Sys'; id: string }
+  description?: { __typename?: 'SpecialRuleDescription'; json: any } | null
 }
