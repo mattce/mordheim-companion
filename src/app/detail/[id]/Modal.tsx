@@ -24,11 +24,11 @@ const Modal: React.FC<ModalProps> = (props) => {
     <>
       <span onClick={handleToggle}>{props.label}</span>
       <div
-        className={cx('fixed left-0 top-0 z-10 h-full w-full bg-neutral-900/50', { hidden: !isOpen, block: isOpen })}
+        className={cx('fixed top-0 left-0 z-10 h-full w-full', { hidden: !isOpen, block: isOpen })}
         onClick={handleToggle}
       >
         <div className="absolute inset-4 overflow-y-auto bg-neutral-200 p-4 text-neutral-950">
-          <button className="absolute right-0 top-0 m-4">&times;</button>
+          <button className="absolute top-0 right-0 m-4">&times;</button>
           {props.children}
         </div>
       </div>
