@@ -30,8 +30,8 @@ const Hero: React.FC<HeroProps> = (props) => {
       <ul className="mt-2 flex">
         {stats?.map(([k, v]) => (
           <li className="flex-1 text-center" key={k}>
-            <p className="bg-neutral-950">{k}</p>
-            <p className="border border-neutral-950 bg-neutral-200 text-neutral-900">{v}</p>
+            <p className="bg-gray-950 text-gray-200">{k}</p>
+            <p className="border border-gray-950 bg-gray-200 text-gray-900">{v}</p>
           </li>
         ))}
       </ul>
@@ -51,11 +51,11 @@ const Hero: React.FC<HeroProps> = (props) => {
           return (
             <li className={cx('relative flex w-1/12')} key={v}>
               <span className="h-0 pt-[100%]" />
-              <span className="absolute inset-px bg-neutral-200" />
+              <span className="absolute inset-px bg-gray-200" />
               <span
                 className={cx('absolute inset-[3px]', {
-                  'border-2 border-neutral-950': XP_LADDER_HEROES.includes(v),
-                  'bg-neutral-400': (experience || 0) >= v,
+                  'border-2 border-gray-950': XP_LADDER_HEROES.includes(v),
+                  'bg-gray-400': (experience || 0) >= v,
                 })}
               />
             </li>

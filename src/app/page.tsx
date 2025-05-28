@@ -14,9 +14,9 @@ const RootPage: React.FC = async () => {
     <ul>
       {data?.rosterCollection?.items.map((item) => (
         <li className="mb-6" key={item?.sys.id}>
-          <Link className="block h-32 bg-neutral-800 p-4" href={'/detail/' + item?.sys.id}>
+          <Link className="block h-32 bg-gray-800 p-4" href={'/detail/' + item?.sys.id}>
             <h3 className="text-xl">{item?.name}</h3>
-            <p className=" text-sm">{item?.type}</p>
+            <p className="text-sm">{item?.type}</p>
           </Link>
         </li>
       ))}
