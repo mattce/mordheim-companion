@@ -1,18 +1,18 @@
 import type { TStats } from '@/types'
 
 const getStats = (stats: string | null | undefined): TStats | null => {
-  const [B = 1, KG = 1, BF = 1, S = 1, W = 1, LP = 1, I = 1, A = 1, MW = 1] = stats?.split(',') ?? []
+  const [M = 1, WS = 1, BS = 1, S = 1, T = 1, LP = 1, I = 1, A = 1, LD = 1] = stats?.split(',') ?? []
 
   return [
-    ['B', +B],
-    ['KG', +KG],
-    ['BF', +BF],
+    ['M', +M],
+    ['WS', +WS],
+    ['BS', +BS],
     ['S', +S],
-    ['W', +W],
+    ['T', +T],
     ['LP', +LP],
     ['I', +I],
     ['A', +A],
-    ['MW', +MW],
+    ['LD', +LD],
   ]
 }
 
