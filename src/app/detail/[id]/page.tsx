@@ -7,8 +7,9 @@ import queryContentful from '@/utils/queryContentful'
 
 import type { DetailPageLookupQuery, DetailPageQuery } from '@/types'
 
-const DetailPage: React.FC<{ params: { id: string } }> = async (props) => {
-  const data = await queryContentful<DetailPageQuery>(detailPageQuery, { id: props.params.id })
+const DetailPage: React.FC<{ params: Promise<{ id: string }> }> = async (props) => {
+  const { id } = await props.params
+  const data = await queryContentful<DetailPageQuery>(detailPageQuery, { id })
 
   return <DetailPageModule {...DetailPageModule.mapper(data?.roster ?? null)} />
 }
