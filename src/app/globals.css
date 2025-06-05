@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+@theme {
+    --font-mordheim: var(--font-local-mordheim), serif;
+    --font-caslon: var(--font-local-caslon), serif;
+}

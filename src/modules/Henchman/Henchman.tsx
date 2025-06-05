@@ -4,7 +4,7 @@ import cx from 'classnames'
 import ArmourModule, { type ArmourModuleProps } from '@/modules/Armour'
 import BlackPowderWeaponModule, { type BlackPowderWeaponModuleProps } from '@/modules/BlackPowderWeapon'
 import MeleeWeaponModule, { type MeleeWeaponModuleProps } from '@/modules/MeleeWeapon'
-import { STATS_DICTIONARY, XP_LADDER_HENCHMEN } from '@/utils/consts'
+import { XP_LADDER_HENCHMEN } from '@/utils/consts'
 import getLevel from '@/utils/getLevel'
 
 import type { TStats } from '@/types'
