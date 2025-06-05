@@ -26,7 +26,7 @@ const DetailPageModule: Module<DetailPageModuleFragment, DetailPageModuleProps> 
 
   return (
     <div className="flex flex-col">
-      <header className="flex h-32 flex-col bg-gray-800 p-4">
+      <header className="flex h-32 flex-col bg-gray-400 p-4">
         <h3 className="text-xl">{name}</h3>
         <p className="text-sm">{type}</p>
         <ul className="mt-auto flex justify-between">

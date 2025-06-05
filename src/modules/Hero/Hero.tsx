@@ -4,7 +4,7 @@ import cx from 'classnames'
 import ArmourModule, { type ArmourModuleProps } from '@/modules/Armour'
 import BlackPowderWeaponModule, { type BlackPowderWeaponModuleProps } from '@/modules/BlackPowderWeapon'
 import MeleeWeaponModule, { type MeleeWeaponModuleProps } from '@/modules/MeleeWeapon'
-import { STATS_DICTIONARY, XP_LADDER_HEROES } from '@/utils/consts'
+import { XP_LADDER_HEROES } from '@/utils/consts'
 import getLevel from '@/utils/getLevel'
 
 import type { TStats } from '@/types'
@@ -46,7 +46,7 @@ const Hero: React.FC<HeroProps> = (props) => {
           ))}
         </ul>
       )}
-      <ul className="flex flex-wrap">
+      <ul className="mb-8 flex flex-wrap">
         {Array.from({ length: 90 }, (_, i) => i + 1).map((v) => {
           return (
             <li className={cx('relative flex w-1/12')} key={v}>

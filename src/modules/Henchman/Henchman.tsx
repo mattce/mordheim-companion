@@ -47,7 +47,7 @@ const Henchman: React.FC<HenchmanProps> = (props) => {
           ))}
         </ul>
       )}
-      <ul className="flex flex-wrap">
+      <ul className="mb-8 flex flex-wrap">
         {Array.from({ length: 14 }, (_, i) => i + 1).map((v) => {
           return (
             <li className={cx('relative flex w-1/12')} key={v}>
